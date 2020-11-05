@@ -29,7 +29,7 @@ class RepositoryTests {
     }
 
     @Test
-    void saveClient2() {
+    void saveClientWithExistingRoom() {
         Client client = Client.builder().login("test").build();
 
         Client saved = clientRepository.save(client);
