@@ -27,8 +27,8 @@ public class RoomController {
     }
 
     @PostMapping
-    public ResponseEntity<Room> create(@RequestBody Room client) {
-        Room createdRoom = roomRepository.save(client);
+    public ResponseEntity<Room> create(@RequestBody Room room) {
+        Room createdRoom = roomRepository.save(room);
         if (createdRoom == null) {
             return ResponseEntity.notFound().build();
         } else {

@@ -17,10 +17,11 @@ public class Client {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String phone;
+    @Column(unique = true)
     private String login;
     @ManyToMany
     private Set<Room> rooms;
-    @OneToMany(mappedBy = "client",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
     @Singular
     private Set<RoomDate> roomDates;
 
