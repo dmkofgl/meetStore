@@ -19,7 +19,7 @@ public class RoomDate {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToOne
-    @JsonIgnoreProperties("roomDates")
+    @JsonIgnoreProperties(value = {"roomDates", "rooms"})
     private Client client;
     @ManyToOne
     @JsonIgnoreProperties("dates")
@@ -28,4 +28,5 @@ public class RoomDate {
     private Date startDate;
     @Column(nullable = false)
     private Date finishDate;
+    private String titile;
 }

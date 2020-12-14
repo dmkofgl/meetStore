@@ -12,7 +12,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("/roomDates")
+@RequestMapping("/rooms/{roomId}/dates")
 public class RoomDatesController {
     @Autowired
     private RoomDatesRepository roomDatesRepository;
@@ -28,18 +28,18 @@ public class RoomDatesController {
     }
 
     @PostMapping
-    public ResponseEntity<RoomDate> create(@RequestBody RoomDate client) {
-        RoomDate createdRoom = roomDatesRepository.save(client);
-        if (createdRoom == null) {
+    public ResponseEntity<List<RoomDate>> create(@RequestBody List<RoomDate> roomDates) {
+        List<RoomDate> createdRoomDates = roomDatesRepository.saveAll(roomDates);
+        if (createdRoomDates == null) {
             return ResponseEntity.notFound().build();
         } else {
             URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
                     .path("/{id}")
-                    .buildAndExpand(createdRoom.getId())
+                    .buildAndExpand(createdRoomDates)
                     .toUri();
 
             return ResponseEntity.created(uri)
-                    .body(createdRoom);
+                    .body(createdRoomDates);
         }
     }
 }

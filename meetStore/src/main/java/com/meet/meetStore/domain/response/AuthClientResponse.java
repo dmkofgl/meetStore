@@ -1,5 +1,6 @@
-package com.meet.meetStore.domain.entity;
+package com.meet.meetStore.domain.response;
 
+import com.meet.meetStore.domain.entity.Client;
 import lombok.*;
 
 @Getter

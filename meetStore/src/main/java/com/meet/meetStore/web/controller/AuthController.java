@@ -1,8 +1,8 @@
 package com.meet.meetStore.web.controller;
 
-import com.meet.meetStore.domain.entity.AuthClientResponse;
 import com.meet.meetStore.domain.entity.Client;
 import com.meet.meetStore.domain.repository.ClientRepository;
+import com.meet.meetStore.domain.response.AuthClientResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

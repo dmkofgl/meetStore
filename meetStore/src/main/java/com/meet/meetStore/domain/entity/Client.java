@@ -1,6 +1,7 @@
 package com.meet.meetStore.domain.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
 import javax.persistence.*;
@@ -20,6 +21,7 @@ public class Client {
     @Column(unique = true)
     private String login;
     @ManyToMany
+    @JsonIgnoreProperties("clients")
     private Set<Room> rooms;
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
     @Singular
